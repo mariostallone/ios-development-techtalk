@@ -55,7 +55,7 @@
     return reusableCell;
 }
 
--(IBAction)hideKeyBoard:(id)sender){
+-(IBAction)hideKeyBoard:(id)sender{
     [_locationField resignFirstResponder];
 }
 
