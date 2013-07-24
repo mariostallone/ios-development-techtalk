@@ -60,26 +60,38 @@
 
 #pragma mark UITableViewDelegate
 
+
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
-    NSString *urlString = [[NSString alloc] initWithFormat:@"http://maps.googleapis.com/maps/api/geocode/json?address=%@,India&sensor=false",[_locationArray objectAtIndex:indexPath.row]];
-    NSURL *url = [NSURL URLWithString:urlString];
-    NSData *responseData = [NSData dataWithContentsOfURL:url];
-    NSDictionary *jsonData = [NSJSONSerialization JSONObjectWithData:responseData
-                                    options: NSJSONReadingMutableContainers
-                                      error: nil];
-    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"MainStoryboard" bundle:nil];
-    MapViewController *mapViewController = [storyboard instantiateViewControllerWithIdentifier:@"MapView"];
-    NSArray *locationArray = [[[jsonData valueForKey:@"results"] valueForKey:@"geometry"] valueForKey:@"location"];
-    CLLocation *location = nil;
-    if(locationArray==nil||[locationArray count]<=0) {
-        location = [[CLLocation alloc] initWithLatitude:0 longitude:0];
-    }
-    else {
-        location = [[CLLocation alloc] initWithLatitude:[[[locationArray objectAtIndex:0] valueForKey:@"lat"] longValue] longitude:[[[locationArray objectAtIndex:0] valueForKey:@"lng"] longValue]];
-    }
-    
-    mapViewController.location = location;
-    [self.navigationController pushViewController:mapViewController animated:YES];
+    __block NSData *responseData = nil;
+    __block UIActivityIndicatorView *spinner = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleGray];
+    spinner.center = CGPointMake(self.view.frame.size.width/2, self.view.frame.size.height/2);
+    spinner.hidesWhenStopped = YES;
+    [self.view addSubview:spinner];
+    [spinner startAnimating];
+    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{     
+        NSString *urlString = [[NSString alloc] initWithFormat:@"http://maps.googleapis.com/maps/api/geocode/json?address=%@,India&sensor=false",[_locationArray objectAtIndex:indexPath.row]];
+        NSURL *url = [NSURL URLWithString:urlString];
+        responseData = [NSData dataWithContentsOfURL:url];
+        dispatch_async(dispatch_get_main_queue(), ^{
+            NSDictionary *jsonData = [NSJSONSerialization JSONObjectWithData:responseData
+                                                                     options: NSJSONReadingMutableContainers
+                                                                       error: nil];
+            UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"MainStoryboard" bundle:nil];
+            MapViewController *mapViewController = [storyboard instantiateViewControllerWithIdentifier:@"MapView"];
+            NSArray *locationArray = [[[jsonData valueForKey:@"results"] valueForKey:@"geometry"] valueForKey:@"location"];
+            CLLocation *location = nil;
+            if(locationArray==nil||[locationArray count]<=0) {
+                location = [[CLLocation alloc] initWithLatitude:0 longitude:0];
+            }
+            else {
+                location = [[CLLocation alloc] initWithLatitude:[[[locationArray objectAtIndex:0] valueForKey:@"lat"] longValue] longitude:[[[locationArray objectAtIndex:0] valueForKey:@"lng"] longValue]];
+            }
+            [spinner stopAnimating];
+            mapViewController.location = location;
+            mapViewController.place = [_locationArray objectAtIndex:indexPath.row];
+            [self.navigationController pushViewController:mapViewController animated:YES];
+        });
+    });
 }
 
 -(IBAction)hideKeyBoard:(id)sender{
