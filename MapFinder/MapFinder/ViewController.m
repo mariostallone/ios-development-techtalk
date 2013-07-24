@@ -9,7 +9,7 @@
 #import "ViewController.h"
 
 @interface ViewController ()
-
+    NSMutableArray *_locationArray;
 @end
 
 @implementation ViewController
@@ -18,6 +18,9 @@
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view, typically from a nib.
+    if(_locationArray==nil){
+        _locationArray = [[NSMutableArray alloc] init];
+    }
 }
 
 - (void)didReceiveMemoryWarning
@@ -26,4 +29,6 @@
     // Dispose of any resources that can be recreated.
 }
 
+- (IBAction)addLocation:(id)sender {
+}
 @end

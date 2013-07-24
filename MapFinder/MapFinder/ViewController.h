@@ -10,4 +10,7 @@
 
 @interface ViewController : UIViewController
 
+@property (weak, nonatomic) IBOutlet UITextField *locationField;
+- (IBAction)addLocation:(id)sender;
+
 @end
