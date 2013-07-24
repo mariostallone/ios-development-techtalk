@@ -21,6 +21,8 @@
 		AC796527179FB28300DBFD3A /* MapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AC796526179FB28300DBFD3A /* MapViewController.m */; };
 		AC796529179FB37A00DBFD3A /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AC796528179FB37A00DBFD3A /* MapKit.framework */; };
 		AC79652B179FB62600DBFD3A /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AC79652A179FB62600DBFD3A /* CoreLocation.framework */; };
+		AC79652D179FCBE500DBFD3A /* icon.png in Resources */ = {isa = PBXBuildFile; fileRef = AC79652C179FCBE500DBFD3A /* icon.png */; };
+		AC79652F179FCC0C00DBFD3A /* icon_54.png in Resources */ = {isa = PBXBuildFile; fileRef = AC79652E179FCC0C00DBFD3A /* icon_54.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -44,6 +46,8 @@
 		AC796526179FB28300DBFD3A /* MapViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MapViewController.m; sourceTree = "<group>"; };
 		AC796528179FB37A00DBFD3A /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		AC79652A179FB62600DBFD3A /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
+		AC79652C179FCBE500DBFD3A /* icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon.png; sourceTree = "<group>"; };
+		AC79652E179FCC0C00DBFD3A /* icon_54.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon_54.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -65,6 +69,8 @@
 		AC7964F6179FAB2400DBFD3A = {
 			isa = PBXGroup;
 			children = (
+				AC79652E179FCC0C00DBFD3A /* icon_54.png */,
+				AC79652C179FCBE500DBFD3A /* icon.png */,
 				AC79652A179FB62600DBFD3A /* CoreLocation.framework */,
 				AC796528179FB37A00DBFD3A /* MapKit.framework */,
 				AC796508179FAB2500DBFD3A /* MapFinder */,
@@ -176,6 +182,8 @@
 				AC796517179FAB2500DBFD3A /* Default@2x.png in Resources */,
 				AC796519179FAB2500DBFD3A /* Default-568h@2x.png in Resources */,
 				AC79651C179FAB2500DBFD3A /* MainStoryboard.storyboard in Resources */,
+				AC79652D179FCBE500DBFD3A /* icon.png in Resources */,
+				AC79652F179FCC0C00DBFD3A /* icon_54.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
