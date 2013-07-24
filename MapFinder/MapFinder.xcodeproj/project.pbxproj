@@ -18,6 +18,7 @@
 		AC796519179FAB2500DBFD3A /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = AC796518179FAB2500DBFD3A /* Default-568h@2x.png */; };
 		AC79651C179FAB2500DBFD3A /* MainStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AC79651A179FAB2500DBFD3A /* MainStoryboard.storyboard */; };
 		AC79651F179FAB2500DBFD3A /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AC79651E179FAB2500DBFD3A /* ViewController.m */; };
+		AC796527179FB28300DBFD3A /* MapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AC796526179FB28300DBFD3A /* MapViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -37,6 +38,8 @@
 		AC79651B179FAB2500DBFD3A /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/MainStoryboard.storyboard; sourceTree = "<group>"; };
 		AC79651D179FAB2500DBFD3A /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
 		AC79651E179FAB2500DBFD3A /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		AC796525179FB28300DBFD3A /* MapViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MapViewController.h; sourceTree = "<group>"; };
+		AC796526179FB28300DBFD3A /* MapViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MapViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -86,6 +89,8 @@
 				AC796511179FAB2500DBFD3A /* AppDelegate.h */,
 				AC796512179FAB2500DBFD3A /* AppDelegate.m */,
 				AC79651A179FAB2500DBFD3A /* MainStoryboard.storyboard */,
+				AC796525179FB28300DBFD3A /* MapViewController.h */,
+				AC796526179FB28300DBFD3A /* MapViewController.m */,
 				AC79651D179FAB2500DBFD3A /* ViewController.h */,
 				AC79651E179FAB2500DBFD3A /* ViewController.m */,
 				AC796509179FAB2500DBFD3A /* Supporting Files */,
@@ -176,6 +181,7 @@
 				AC79650F179FAB2500DBFD3A /* main.m in Sources */,
 				AC796513179FAB2500DBFD3A /* AppDelegate.m in Sources */,
 				AC79651F179FAB2500DBFD3A /* ViewController.m in Sources */,
+				AC796527179FB28300DBFD3A /* MapViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
