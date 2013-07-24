@@ -69,8 +69,15 @@
                                       error: nil];
     UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"MainStoryboard" bundle:nil];
     MapViewController *mapViewController = [storyboard instantiateViewControllerWithIdentifier:@"MapView"];
-    NSDictionary *locationDict = [[[[jsonData valueForKey:@"results"] valueForKey:@"geometry"] valueForKey:@"location"] objectAtIndex:0];
-    CLLocation *location = [[CLLocation alloc] initWithLatitude:[[locationDict valueForKey:@"lat"] longValue] longitude:[[locationDict valueForKey:@"lng"] longValue]];
+    NSArray *locationArray = [[[jsonData valueForKey:@"results"] valueForKey:@"geometry"] valueForKey:@"location"];
+    CLLocation *location = nil;
+    if(locationArray==nil||[locationArray count]<=0) {
+        location = [[CLLocation alloc] initWithLatitude:0 longitude:0];
+    }
+    else {
+        location = [[CLLocation alloc] initWithLatitude:[[[locationArray objectAtIndex:0] valueForKey:@"lat"] longValue] longitude:[[[locationArray objectAtIndex:0] valueForKey:@"lng"] longValue]];
+    }
+    
     mapViewController.location = location;
     [self.navigationController pushViewController:mapViewController animated:YES];
 }
