@@ -38,6 +38,8 @@
     [self.tableView reloadData];
 }
 
+#pragma mark UITableViewDataSource
+
 -(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{
     return 1;
 }
@@ -53,6 +55,13 @@
     }
     reusableCell.textLabel.text = (NSString*)[_locationArray objectAtIndex:indexPath.row];
     return reusableCell;
+}
+
+#pragma mark UITableViewDelegate
+
+-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"MainStoryboard" bundle:nil];
+    [self.navigationController pushViewController:[storyboard instantiateViewControllerWithIdentifier:@"MapView"] animated:YES];
 }
 
 -(IBAction)hideKeyBoard:(id)sender{
