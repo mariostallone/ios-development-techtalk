@@ -30,9 +30,12 @@
 }
 
 -(void)viewDidAppear:(BOOL)animated{
-    CLLocationCoordinate2D coordinate = {35.67106,139.764909};
+    CLLocationCoordinate2D coordinate = _location.coordinate;
     MKCoordinateRegion viewRegion = MKCoordinateRegionMakeWithDistance(coordinate, 1000, 1000);
     MKCoordinateRegion adjustedRegion = [self.myMapView regionThatFits:viewRegion];
+    MKPointAnnotation *annotation = [[MKPointAnnotation alloc] init];
+    annotation.coordinate = coordinate;
+    [self.myMapView addAnnotation:annotation];
     [self.myMapView setRegion:adjustedRegion animated:YES];
     [self.myMapView setCenterCoordinate:coordinate animated:YES];
 }

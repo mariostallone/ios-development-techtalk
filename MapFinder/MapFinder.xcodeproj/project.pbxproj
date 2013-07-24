@@ -20,6 +20,7 @@
 		AC79651F179FAB2500DBFD3A /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AC79651E179FAB2500DBFD3A /* ViewController.m */; };
 		AC796527179FB28300DBFD3A /* MapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AC796526179FB28300DBFD3A /* MapViewController.m */; };
 		AC796529179FB37A00DBFD3A /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AC796528179FB37A00DBFD3A /* MapKit.framework */; };
+		AC79652B179FB62600DBFD3A /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AC79652A179FB62600DBFD3A /* CoreLocation.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -42,6 +43,7 @@
 		AC796525179FB28300DBFD3A /* MapViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MapViewController.h; sourceTree = "<group>"; };
 		AC796526179FB28300DBFD3A /* MapViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MapViewController.m; sourceTree = "<group>"; };
 		AC796528179FB37A00DBFD3A /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
+		AC79652A179FB62600DBFD3A /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -49,6 +51,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AC79652B179FB62600DBFD3A /* CoreLocation.framework in Frameworks */,
 				AC796529179FB37A00DBFD3A /* MapKit.framework in Frameworks */,
 				AC796503179FAB2500DBFD3A /* UIKit.framework in Frameworks */,
 				AC796505179FAB2500DBFD3A /* Foundation.framework in Frameworks */,
@@ -62,6 +65,7 @@
 		AC7964F6179FAB2400DBFD3A = {
 			isa = PBXGroup;
 			children = (
+				AC79652A179FB62600DBFD3A /* CoreLocation.framework */,
 				AC796528179FB37A00DBFD3A /* MapKit.framework */,
 				AC796508179FAB2500DBFD3A /* MapFinder */,
 				AC796501179FAB2500DBFD3A /* Frameworks */,

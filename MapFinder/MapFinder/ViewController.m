@@ -7,6 +7,7 @@
 //
 
 #import "ViewController.h"
+#import "MapViewController.h"
 
 @interface ViewController ()
 {
@@ -21,7 +22,7 @@
     [super viewDidLoad];
 	// Do any additional setup after loading the view, typically from a nib.
     if(_locationArray==nil){
-        _locationArray = [[NSMutableArray alloc] init];
+        _locationArray = [[NSMutableArray alloc] initWithArray:@[@"Bangalore"]];
     }
 }
 
@@ -60,8 +61,18 @@
 #pragma mark UITableViewDelegate
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+    NSString *urlString = [[NSString alloc] initWithFormat:@"http://maps.googleapis.com/maps/api/geocode/json?address=%@,India&sensor=false",[_locationArray objectAtIndex:indexPath.row]];
+    NSURL *url = [NSURL URLWithString:urlString];
+    NSData *responseData = [NSData dataWithContentsOfURL:url];
+    NSDictionary *jsonData = [NSJSONSerialization JSONObjectWithData:responseData
+                                    options: NSJSONReadingMutableContainers
+                                      error: nil];
     UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"MainStoryboard" bundle:nil];
-    [self.navigationController pushViewController:[storyboard instantiateViewControllerWithIdentifier:@"MapView"] animated:YES];
+    MapViewController *mapViewController = [storyboard instantiateViewControllerWithIdentifier:@"MapView"];
+    NSDictionary *locationDict = [[[[jsonData valueForKey:@"results"] valueForKey:@"geometry"] valueForKey:@"location"] objectAtIndex:0];
+    CLLocation *location = [[CLLocation alloc] initWithLatitude:[[locationDict valueForKey:@"lat"] longValue] longitude:[[locationDict valueForKey:@"lng"] longValue]];
+    mapViewController.location = location;
+    [self.navigationController pushViewController:mapViewController animated:YES];
 }
 
 -(IBAction)hideKeyBoard:(id)sender{
