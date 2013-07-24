@@ -9,7 +9,9 @@
 #import "ViewController.h"
 
 @interface ViewController ()
+{
     NSMutableArray *_locationArray;
+}
 @end
 
 @implementation ViewController
@@ -30,5 +32,7 @@
 }
 
 - (IBAction)addLocation:(id)sender {
+    [_locationArray addObject:[_locationField text]];
+    NSLog(@"Location Array : %@",_locationArray);
 }
 @end
